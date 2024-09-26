@@ -10,7 +10,7 @@ There are 2 types of graphs
 # programmatic representation of Graph
 - Graph is represented by dictionary when it comes to python language
 - Let's represent below graph with the help of dictionary. 
-![alt text](.images/image.png)
+![alt text](./images/image.png)
 
 Here, keys are nodes & corresponding values are it's neighbours.
 {
