@@ -1,11 +1,10 @@
 def dfs(graph, curr_node):
-    if not graph:
+    if not curr_node:
         return []
-
     if graph[curr_node]:
         for neighbor in graph[curr_node]:
-            partial_path = dfs(graph, neighbor)
-    return partial_path
+                return [curr_node] + dfs(graph, neighbor)
+     
 
 graph = {
     "a": ["c", "b"],

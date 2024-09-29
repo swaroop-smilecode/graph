@@ -15,7 +15,7 @@ def dfs(graph, curr_node):
     return result
 
 graph = {
-    "a": ["c", "b"],
+    "a": ["b", "c"],
     "b": ["d"],
     "c": ["e"],
     "d": ["f"],
