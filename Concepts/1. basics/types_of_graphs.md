@@ -31,7 +31,3 @@ There are 2 types of graphs
     - There are 2 types of graphs
       1. Acyclic graph
       2. Cyclic graph
-
-# Types of algorithms to traverse the Graph
-1. dfs
-2. bfs
