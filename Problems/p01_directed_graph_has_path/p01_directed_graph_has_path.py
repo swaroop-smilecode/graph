@@ -1,11 +1,16 @@
 def has_path(graph, src, dst):
+    # Base case
     if src == dst:
         return True
+
+    # Recursive calls
     for neighbor in graph[src]:
         if has_path(graph, neighbor, dst) == True:
             return True
+        else:
+            return False
+    
     return False
-
 
 graph = {
   'f': ['g', 'i'],
@@ -17,9 +22,3 @@ graph = {
 }
 
 print(has_path(graph, 'f', 'k')) # True
-
-    
-    
-  
-
-  
