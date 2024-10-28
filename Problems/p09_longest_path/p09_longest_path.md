@@ -21,5 +21,7 @@ When top of the tree is reached, you will end up with lenght of the path.</br>
 Pick `max` of all path lengths.
 
 For example; below figures shown that you started exploration from `node a` & got the path length as `1`.</br>
-You need to repeat the same process on each node & pick the max path.
+You need to repeat the same process on each node & pick the max path.</br>
+And since it is graph problem, better to have `visisted` set to avoid working on the same node which was
+already touched.
 ![image](https://github.com/user-attachments/assets/3a041de6-d21b-466a-b058-ea5e7af1f560)
