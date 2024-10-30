@@ -1,33 +1,32 @@
 def longest_path(graph):
-    visited = set()
+    visited = {}
     longest = float("-inf")
     for node in graph:
-        curr_longest = _explore_dfs(graph, node, 0, visited)
+        curr_longest = _explore_dfs(graph, node, visited)
         longest = max(curr_longest, longest)
     return longest 
 
-def  _explore_dfs(graph, node, distance, visited):
+def  _explore_dfs(graph, node, visited):
     # Base case
     if graph[node] == []:
         return 0 
     if node in visited:
-        return distance
+        return visited[node]
     else:
-        visited.add(node)
-        distance = 1
+        visited[node] = 0
 
     # Recursive calls
     neighbor_distances = set()
     for neighbor in graph[node]:
-        neighbor_distances.add(_explore_dfs(graph, neighbor, distance, visited)) 
-    max_distance_neighbor = max(neighbor_distances)
-    distance += max_distance_neighbor
+        neighbor_distances.add(_explore_dfs(graph, neighbor, visited)) 
+    visited[node] = 1 + max(neighbor_distances)
 
-    return distance
+    return visited[node]
 
 graph = {
-  'a': ['c', 'b'],
+  'a': ['b', 'd'],
   'b': ['c'],
-  'c': []
+  'c': [],
+  'd': ['b'],
 }
-print(longest_path(graph)) # -> 2
+print(longest_path(graph)) # -> 3

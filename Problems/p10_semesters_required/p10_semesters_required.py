@@ -1,16 +1,12 @@
 def semesters_required(num_courses, prereqs):
-    graph = _build_graph(prereqs)
+    graph = _build_graph(num_courses, prereqs)
 
     visited = {}
     longest = float("-inf")
     for course in graph:
         curr_longest = _explore_dfs(graph, course, visited)
         longest = max(curr_longest, longest)
-    
-    if longest == float("-inf"):
-        return 1
-    else:
-        return longest
+    return longest
 
 def  _explore_dfs(graph, course, visited):
     # Base case
@@ -18,31 +14,33 @@ def  _explore_dfs(graph, course, visited):
         return 1
     if course in visited:
         return visited[course]
+    else:
+        visited[course] = 0
 
     # Recursive calls
     neighbor_courses = set()
     for neighbor in graph[course]:
         neighbor_courses.add( _explore_dfs(graph, neighbor, visited)) 
-    max_neighbor_courses = max(neighbor_courses)
-    visited[course] = 1 + max_neighbor_courses
+    visited[course] = 1 + max(neighbor_courses)
 
     return visited[course]
 
-def _build_graph(prereqs):
-    graph = {}
-    for a, b in prereqs:
-        if a in graph:
-            graph[a].append(b)
-        else:
-            graph[a] = [b]
-        if b in graph:
-            graph[b].append(a)
-        else:
-            graph[b] = [a]
+def _build_graph(num_courses, prereqs):
+    graph = {} 
+    for course in range(num_courses):
+        graph[course] = []        
+    for prereq in prereqs:
+        a, b = prereq
+        graph[a].append(b)  
     return graph
 
-num_courses = 7
+num_courses = 6
 prereqs = [
-
+  (1, 2),
+  (2, 4),
+  (3, 5),
+  (0, 5),
 ]
-print(semesters_required(num_courses, prereqs)) # -> 5
+print(semesters_required(num_courses, prereqs)) # -> 3
+
+
