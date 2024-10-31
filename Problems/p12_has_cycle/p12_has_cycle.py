@@ -21,8 +21,8 @@ def _has_cycle(graph, node, grey, black):
     
     return False
 
-has_cycle({
+print(has_cycle({
   "a": ["b"],
   "b": ["c"],
   "c": ["a"],
-}) # -> True
+})) # -> True
