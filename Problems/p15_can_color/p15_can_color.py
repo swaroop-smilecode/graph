@@ -19,9 +19,9 @@ def can_color(graph):
 
 def  _can_color(graph, node, coloring, curr_color):
     if node in coloring:
-        if coloring[node] == curr_color:
-            return True
-        return False
+        if coloring[node] != curr_color:
+            return False
+        return True
     
     coloring[node] = curr_color
 
