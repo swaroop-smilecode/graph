@@ -17,7 +17,7 @@ you can't know who is parent & who is child.
 - Take out an element from `ready` list & append it to `topo_order` list.</br>
   (`topo_order` list is the final result list)</br>
   Once a node is added to `topo_order`, decrease it's child parent count value by `1`.</br>
-  (You need to decrease by `1`, becasue you processed one of the parent. It's like cutting/stemming out it from the graph)   
+  (You need to decrease by `1`, becasue you processed one of the parent.)   
 ![image](https://github.com/user-attachments/assets/3bec783f-1316-43a3-a8df-1e1ac593657b)
 
 - Continue this process, until the parents dictionary decomes empty.
