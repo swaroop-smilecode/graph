@@ -23,4 +23,4 @@ graph = {
     "f": []
 }
 
-bfs_print(graph, "a")
+bfs_print(graph, "a") # a, b, c, d, e, f
