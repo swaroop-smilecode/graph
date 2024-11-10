@@ -16,4 +16,4 @@ graph = {
     "e": [],
     "f": []
 }
-dfs_print(graph, "a")
+dfs_print(graph, "a") # a, b, d, f, c, e
